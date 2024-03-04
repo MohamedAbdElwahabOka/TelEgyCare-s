@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tests",
+  "info": {
+    "singularName": "test",
+    "pluralName": "tests",
+    "displayName": "Test"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titel": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "integer"
+    },
+    "Email": {
+      "type": "email"
+    },
+    "Password": {
+      "type": "password"
+    },
+    "Img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
