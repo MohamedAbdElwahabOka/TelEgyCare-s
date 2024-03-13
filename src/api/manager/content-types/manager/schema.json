@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "managers",
+  "info": {
+    "singularName": "manager",
+    "pluralName": "managers",
+    "displayName": "Manager"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "Password": {
+      "type": "password",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

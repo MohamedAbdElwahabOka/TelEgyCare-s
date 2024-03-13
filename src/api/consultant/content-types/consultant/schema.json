@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "consultants",
+  "info": {
+    "singularName": "consultant",
+    "pluralName": "consultants",
+    "displayName": "Consultant",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "reg_Num": {
+      "type": "string",
+      "required": true,
+      "regex": "^\\d{6,50}$",
+      "minLength": 6,
+      "unique": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "Address": {
+      "type": "text",
+      "required": true
+    },
+    "pic": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "Type_of_Spec": {
+      "type": "enumeration",
+      "enum": [
+        "Anatomical Pathology",
+        "Anesthesiology",
+        "Cardiology",
+        "Cardiovascular/Thoracic Surgery",
+        "Clinical Immunology/Allergy",
+        "Critical Care Medicine",
+        "Dermatology"
+      ],
+      "required": true
+    },
+    "Password": {
+      "type": "password",
+      "required": true
+    },
+    "license_Num": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

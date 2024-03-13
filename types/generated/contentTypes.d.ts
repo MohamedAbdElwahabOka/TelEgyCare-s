@@ -362,32 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiTestTest extends Schema.CollectionType {
-  collectionName: 'tests';
-  info: {
-    singularName: 'test';
-    pluralName: 'tests';
-    displayName: 'Test';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Titel: Attribute.String;
-    phone: Attribute.Integer;
-    Email: Attribute.Email;
-    Password: Attribute.Password;
-    Img: Attribute.Media;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -809,6 +783,369 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiConsultantConsultant extends Schema.CollectionType {
+  collectionName: 'consultants';
+  info: {
+    singularName: 'consultant';
+    pluralName: 'consultants';
+    displayName: 'Consultant';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    reg_Num: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 6;
+      }>;
+    Email: Attribute.Email & Attribute.Required;
+    Address: Attribute.Text & Attribute.Required;
+    pic: Attribute.Media & Attribute.Required;
+    Name: Attribute.String & Attribute.Required;
+    phone: Attribute.String & Attribute.Required;
+    Type_of_Spec: Attribute.Enumeration<
+      [
+        'Anatomical Pathology',
+        'Anesthesiology',
+        'Cardiology',
+        'Cardiovascular/Thoracic Surgery',
+        'Clinical Immunology/Allergy',
+        'Critical Care Medicine',
+        'Dermatology'
+      ]
+    > &
+      Attribute.Required;
+    Password: Attribute.Password & Attribute.Required;
+    license_Num: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::consultant.consultant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::consultant.consultant',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDoctorDoctor extends Schema.CollectionType {
+  collectionName: 'doctors';
+  info: {
+    singularName: 'doctor';
+    pluralName: 'doctors';
+    displayName: 'Doctor';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Email: Attribute.Email & Attribute.Required;
+    phone: Attribute.String & Attribute.Required;
+    Address: Attribute.Text & Attribute.Required;
+    Type_of_Spec: Attribute.Enumeration<
+      [
+        'Anatomical Pathology',
+        'Anesthesiology',
+        'Cardiology',
+        'Cardiovascular/Thoracic Surgery',
+        'Clinical Immunology/Allergy',
+        'Critical Care Medicine',
+        'Dermatology'
+      ]
+    > &
+      Attribute.Required;
+    doctor_Pic: Attribute.Media & Attribute.Required;
+    Password: Attribute.Password &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        minLength: 6;
+      }>;
+    reg_Num: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 6;
+      }>;
+    laboratories: Attribute.Relation<
+      'api::doctor.doctor',
+      'manyToMany',
+      'api::laboratory.laboratory'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::doctor.doctor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::doctor.doctor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHospitalHospital extends Schema.CollectionType {
+  collectionName: 'hospitals';
+  info: {
+    singularName: 'hospital';
+    pluralName: 'hospitals';
+    displayName: 'Hospital';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Address: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::hospital.hospital',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::hospital.hospital',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLaboratoryLaboratory extends Schema.CollectionType {
+  collectionName: 'laboratories';
+  info: {
+    singularName: 'laboratory';
+    pluralName: 'laboratories';
+    displayName: 'Laboratory';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    reg_Num: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 6;
+      }>;
+    Name: Attribute.String & Attribute.Required;
+    Password: Attribute.Password & Attribute.Required;
+    phone: Attribute.String & Attribute.Required;
+    Address: Attribute.Text & Attribute.Required;
+    doctors: Attribute.Relation<
+      'api::laboratory.laboratory',
+      'manyToMany',
+      'api::doctor.doctor'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::laboratory.laboratory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::laboratory.laboratory',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiManagerManager extends Schema.CollectionType {
+  collectionName: 'managers';
+  info: {
+    singularName: 'manager';
+    pluralName: 'managers';
+    displayName: 'Manager';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Email: Attribute.Email & Attribute.Required;
+    Password: Attribute.Password & Attribute.Required;
+    phone: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::manager.manager',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::manager.manager',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMedicalRecordMedicalRecord extends Schema.CollectionType {
+  collectionName: 'medical_records';
+  info: {
+    singularName: 'medical-record';
+    pluralName: 'medical-records';
+    displayName: 'Medical Record';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Description: Attribute.Text & Attribute.Required;
+    Files: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::medical-record.medical-record',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::medical-record.medical-record',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPatientPatient extends Schema.CollectionType {
+  collectionName: 'patients';
+  info: {
+    singularName: 'patient';
+    pluralName: 'patients';
+    displayName: 'Patient';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Address: Attribute.Text & Attribute.Required;
+    Password: Attribute.Password & Attribute.Required;
+    Email: Attribute.Email & Attribute.Required;
+    phone: Attribute.String & Attribute.Required;
+    Birth_Date: Attribute.Date & Attribute.Required;
+    verify_Code: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        minLength: 4;
+        maxLength: 4;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::patient.patient',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::patient.patient',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiReceptionistReceptionist extends Schema.CollectionType {
+  collectionName: 'receptionists';
+  info: {
+    singularName: 'receptionist';
+    pluralName: 'receptionists';
+    displayName: 'Receptionist';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    reg_Num: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 6;
+      }>;
+    Name: Attribute.String & Attribute.Required;
+    Password: Attribute.Password & Attribute.Required;
+    phone: Attribute.String & Attribute.Required;
+    Address: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::receptionist.receptionist',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::receptionist.receptionist',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTestTest extends Schema.CollectionType {
+  collectionName: 'tests';
+  info: {
+    singularName: 'test';
+    pluralName: 'tests';
+    displayName: 'Test';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Titel: Attribute.String;
+    phone: Attribute.Integer;
+    Email: Attribute.Email;
+    Password: Attribute.Password;
+    Img: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::test.test', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -819,7 +1156,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::test.test': ApiTestTest;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -828,6 +1164,15 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::consultant.consultant': ApiConsultantConsultant;
+      'api::doctor.doctor': ApiDoctorDoctor;
+      'api::hospital.hospital': ApiHospitalHospital;
+      'api::laboratory.laboratory': ApiLaboratoryLaboratory;
+      'api::manager.manager': ApiManagerManager;
+      'api::medical-record.medical-record': ApiMedicalRecordMedicalRecord;
+      'api::patient.patient': ApiPatientPatient;
+      'api::receptionist.receptionist': ApiReceptionistReceptionist;
+      'api::test.test': ApiTestTest;
     }
   }
 }
