@@ -825,6 +825,11 @@ export interface ApiConsultantConsultant extends Schema.CollectionType {
       'manyToMany',
       'api::hospital.hospital'
     >;
+    medical_records: Attribute.Relation<
+      'api::consultant.consultant',
+      'oneToMany',
+      'api::medical-record.medical-record'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -887,6 +892,11 @@ export interface ApiDoctorDoctor extends Schema.CollectionType {
       'api::doctor.doctor',
       'manyToOne',
       'api::hospital.hospital'
+    >;
+    medical_records: Attribute.Relation<
+      'api::doctor.doctor',
+      'oneToMany',
+      'api::medical-record.medical-record'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -980,6 +990,11 @@ export interface ApiLaboratoryLaboratory extends Schema.CollectionType {
     Password: Attribute.Password & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
     Address: Attribute.Text & Attribute.Required;
+    medical_records: Attribute.Relation<
+      'api::laboratory.laboratory',
+      'oneToMany',
+      'api::medical-record.medical-record'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1043,13 +1058,44 @@ export interface ApiMedicalRecordMedicalRecord extends Schema.CollectionType {
     singularName: 'medical-record';
     pluralName: 'medical-records';
     displayName: 'Medical Record';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Description: Attribute.Text & Attribute.Required;
-    Files: Attribute.Media & Attribute.Required;
+    prescription: Attribute.Text & Attribute.Required;
+    Lab_note: Attribute.Text & Attribute.Required;
+    Files: Attribute.Media;
+    pres_state: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          max: 4;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
+    patient: Attribute.Relation<
+      'api::medical-record.medical-record',
+      'manyToOne',
+      'api::patient.patient'
+    >;
+    doctor: Attribute.Relation<
+      'api::medical-record.medical-record',
+      'manyToOne',
+      'api::doctor.doctor'
+    >;
+    laboratory: Attribute.Relation<
+      'api::medical-record.medical-record',
+      'manyToOne',
+      'api::laboratory.laboratory'
+    >;
+    consultant: Attribute.Relation<
+      'api::medical-record.medical-record',
+      'manyToOne',
+      'api::consultant.consultant'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1090,6 +1136,11 @@ export interface ApiPatientPatient extends Schema.CollectionType {
         minLength: 4;
         maxLength: 4;
       }>;
+    medical_records: Attribute.Relation<
+      'api::patient.patient',
+      'oneToMany',
+      'api::medical-record.medical-record'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
