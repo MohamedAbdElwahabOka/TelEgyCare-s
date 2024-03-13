@@ -69,6 +69,12 @@
       "relation": "manyToMany",
       "target": "api::hospital.hospital",
       "mappedBy": "consultants"
+    },
+    "medical_records": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::medical-record.medical-record",
+      "mappedBy": "consultant"
     }
   }
 }

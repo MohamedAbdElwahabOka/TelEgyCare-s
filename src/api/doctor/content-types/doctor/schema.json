@@ -66,6 +66,12 @@
       "relation": "manyToOne",
       "target": "api::hospital.hospital",
       "inversedBy": "doctors"
+    },
+    "medical_records": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::medical-record.medical-record",
+      "mappedBy": "doctor"
     }
   }
 }

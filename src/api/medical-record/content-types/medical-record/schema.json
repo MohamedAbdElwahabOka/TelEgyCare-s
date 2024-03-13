@@ -4,25 +4,60 @@
   "info": {
     "singularName": "medical-record",
     "pluralName": "medical-records",
-    "displayName": "Medical Record"
+    "displayName": "Medical Record",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Description": {
+    "prescription": {
+      "type": "text",
+      "required": true
+    },
+    "Lab_note": {
       "type": "text",
       "required": true
     },
     "Files": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": true,
+      ]
+    },
+    "pres_state": {
+      "type": "integer",
+      "max": 4,
+      "default": 0,
       "required": true
+    },
+    "patient": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::patient.patient",
+      "inversedBy": "medical_records"
+    },
+    "doctor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::doctor.doctor",
+      "inversedBy": "medical_records"
+    },
+    "laboratory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::laboratory.laboratory",
+      "inversedBy": "medical_records"
+    },
+    "consultant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::consultant.consultant",
+      "inversedBy": "medical_records"
     }
   }
 }
