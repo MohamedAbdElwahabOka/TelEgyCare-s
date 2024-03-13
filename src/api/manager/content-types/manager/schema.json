@@ -4,7 +4,8 @@
   "info": {
     "singularName": "manager",
     "pluralName": "managers",
-    "displayName": "Manager"
+    "displayName": "Manager",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -26,6 +27,12 @@
     "phone": {
       "type": "string",
       "required": true
+    },
+    "hospital": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::hospital.hospital",
+      "inversedBy": "manager"
     }
   }
 }

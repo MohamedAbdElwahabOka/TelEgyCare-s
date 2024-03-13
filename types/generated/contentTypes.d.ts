@@ -820,6 +820,11 @@ export interface ApiConsultantConsultant extends Schema.CollectionType {
       Attribute.Required;
     Password: Attribute.Password & Attribute.Required;
     license_Num: Attribute.String & Attribute.Required;
+    hospitals: Attribute.Relation<
+      'api::consultant.consultant',
+      'manyToMany',
+      'api::hospital.hospital'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -878,10 +883,10 @@ export interface ApiDoctorDoctor extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
-    laboratories: Attribute.Relation<
+    hospital: Attribute.Relation<
       'api::doctor.doctor',
-      'manyToMany',
-      'api::laboratory.laboratory'
+      'manyToOne',
+      'api::hospital.hospital'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -907,6 +912,7 @@ export interface ApiHospitalHospital extends Schema.CollectionType {
     singularName: 'hospital';
     pluralName: 'hospitals';
     displayName: 'Hospital';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -914,6 +920,26 @@ export interface ApiHospitalHospital extends Schema.CollectionType {
   attributes: {
     Name: Attribute.String & Attribute.Required;
     Address: Attribute.Text & Attribute.Required;
+    doctors: Attribute.Relation<
+      'api::hospital.hospital',
+      'oneToMany',
+      'api::doctor.doctor'
+    >;
+    consultants: Attribute.Relation<
+      'api::hospital.hospital',
+      'manyToMany',
+      'api::consultant.consultant'
+    >;
+    manager: Attribute.Relation<
+      'api::hospital.hospital',
+      'oneToOne',
+      'api::manager.manager'
+    >;
+    receptionists: Attribute.Relation<
+      'api::hospital.hospital',
+      'oneToMany',
+      'api::receptionist.receptionist'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -954,11 +980,6 @@ export interface ApiLaboratoryLaboratory extends Schema.CollectionType {
     Password: Attribute.Password & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
     Address: Attribute.Text & Attribute.Required;
-    doctors: Attribute.Relation<
-      'api::laboratory.laboratory',
-      'manyToMany',
-      'api::doctor.doctor'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -983,6 +1004,7 @@ export interface ApiManagerManager extends Schema.CollectionType {
     singularName: 'manager';
     pluralName: 'managers';
     displayName: 'Manager';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -992,6 +1014,11 @@ export interface ApiManagerManager extends Schema.CollectionType {
     Email: Attribute.Email & Attribute.Required;
     Password: Attribute.Password & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
+    hospital: Attribute.Relation<
+      'api::manager.manager',
+      'oneToOne',
+      'api::hospital.hospital'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1087,6 +1114,7 @@ export interface ApiReceptionistReceptionist extends Schema.CollectionType {
     singularName: 'receptionist';
     pluralName: 'receptionists';
     displayName: 'Receptionist';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1102,6 +1130,11 @@ export interface ApiReceptionistReceptionist extends Schema.CollectionType {
     Password: Attribute.Password & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
     Address: Attribute.Text & Attribute.Required;
+    hospital: Attribute.Relation<
+      'api::receptionist.receptionist',
+      'manyToOne',
+      'api::hospital.hospital'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

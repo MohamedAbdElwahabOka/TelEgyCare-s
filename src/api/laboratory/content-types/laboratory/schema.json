@@ -34,12 +34,6 @@
     "Address": {
       "type": "text",
       "required": true
-    },
-    "doctors": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::doctor.doctor",
-      "mappedBy": "laboratories"
     }
   }
 }

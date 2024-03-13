@@ -63,6 +63,12 @@
     "license_Num": {
       "type": "string",
       "required": true
+    },
+    "hospitals": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::hospital.hospital",
+      "mappedBy": "consultants"
     }
   }
 }

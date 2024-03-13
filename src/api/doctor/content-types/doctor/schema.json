@@ -61,10 +61,10 @@
       "required": true,
       "regex": "^\\d{6,50}$"
     },
-    "laboratories": {
+    "hospital": {
       "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::laboratory.laboratory",
+      "relation": "manyToOne",
+      "target": "api::hospital.hospital",
       "inversedBy": "doctors"
     }
   }

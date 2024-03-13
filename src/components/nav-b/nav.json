@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_nav_b_navs",
+  "info": {
+    "displayName": "Nav",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string"
+    }
+  }
+}

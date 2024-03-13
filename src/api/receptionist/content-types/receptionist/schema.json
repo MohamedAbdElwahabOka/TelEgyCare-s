@@ -4,7 +4,8 @@
   "info": {
     "singularName": "receptionist",
     "pluralName": "receptionists",
-    "displayName": "Receptionist"
+    "displayName": "Receptionist",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -33,6 +34,12 @@
     "Address": {
       "type": "text",
       "required": true
+    },
+    "hospital": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::hospital.hospital",
+      "inversedBy": "receptionists"
     }
   }
 }

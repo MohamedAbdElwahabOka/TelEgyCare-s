@@ -4,7 +4,8 @@
   "info": {
     "singularName": "hospital",
     "pluralName": "hospitals",
-    "displayName": "Hospital"
+    "displayName": "Hospital",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,6 +19,30 @@
     "Address": {
       "type": "text",
       "required": true
+    },
+    "doctors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::doctor.doctor",
+      "mappedBy": "hospital"
+    },
+    "consultants": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::consultant.consultant",
+      "inversedBy": "hospitals"
+    },
+    "manager": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::manager.manager",
+      "mappedBy": "hospital"
+    },
+    "receptionists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::receptionist.receptionist",
+      "mappedBy": "hospital"
     }
   }
 }
