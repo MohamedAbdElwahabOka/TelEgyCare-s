@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "doctors",
+  "info": {
+    "singularName": "doctor",
+    "pluralName": "doctors",
+    "displayName": "Doctor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "Address": {
+      "type": "text",
+      "required": true
+    },
+    "Type_of_Spec": {
+      "type": "enumeration",
+      "enum": [
+        "Anatomical Pathology",
+        "Anesthesiology",
+        "Cardiology",
+        "Cardiovascular/Thoracic Surgery",
+        "Clinical Immunology/Allergy",
+        "Critical Care Medicine",
+        "Dermatology"
+      ],
+      "required": true
+    },
+    "doctor_Pic": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Password": {
+      "type": "password",
+      "required": true,
+      "minLength": 6
+    },
+    "reg_Num": {
+      "type": "string",
+      "unique": true,
+      "minLength": 6,
+      "required": true,
+      "regex": "^\\d{6,50}$"
+    },
+    "laboratories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::laboratory.laboratory",
+      "inversedBy": "doctors"
+    }
+  }
+}
