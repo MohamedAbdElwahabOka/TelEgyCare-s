@@ -43,6 +43,12 @@
       "relation": "oneToMany",
       "target": "api::receptionist.receptionist",
       "mappedBy": "hospital"
+    },
+    "appointments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::appointment.appointment",
+      "mappedBy": "hospital"
     }
   }
 }

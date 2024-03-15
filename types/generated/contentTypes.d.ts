@@ -783,6 +783,63 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiAppointmentAppointment extends Schema.CollectionType {
+  collectionName: 'appointments';
+  info: {
+    singularName: 'appointment';
+    pluralName: 'appointments';
+    displayName: 'appointment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    specializations: Attribute.Enumeration<
+      [
+        'Anatomical Pathology',
+        'Anesthesiology',
+        'Cardiology',
+        'Cardiovascular/Thoracic Surgery',
+        'Clinical Immunology/Allergy',
+        'Critical Care Medicine',
+        'Dermatology'
+      ]
+    >;
+    date: Attribute.Date;
+    time: Attribute.Time;
+    hospital: Attribute.Relation<
+      'api::appointment.appointment',
+      'manyToOne',
+      'api::hospital.hospital'
+    >;
+    patient: Attribute.Relation<
+      'api::appointment.appointment',
+      'manyToOne',
+      'api::patient.patient'
+    >;
+    receptionists: Attribute.Relation<
+      'api::appointment.appointment',
+      'manyToMany',
+      'api::receptionist.receptionist'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::appointment.appointment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::appointment.appointment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiConsultantConsultant extends Schema.CollectionType {
   collectionName: 'consultants';
   info: {
@@ -949,6 +1006,11 @@ export interface ApiHospitalHospital extends Schema.CollectionType {
       'api::hospital.hospital',
       'oneToMany',
       'api::receptionist.receptionist'
+    >;
+    appointments: Attribute.Relation<
+      'api::hospital.hospital',
+      'oneToMany',
+      'api::appointment.appointment'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1120,6 +1182,7 @@ export interface ApiPatientPatient extends Schema.CollectionType {
     singularName: 'patient';
     pluralName: 'patients';
     displayName: 'Patient';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1141,6 +1204,12 @@ export interface ApiPatientPatient extends Schema.CollectionType {
       'oneToMany',
       'api::medical-record.medical-record'
     >;
+    appointments: Attribute.Relation<
+      'api::patient.patient',
+      'oneToMany',
+      'api::appointment.appointment'
+    >;
+    reg_Num: Attribute.String & Attribute.Required & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1185,6 +1254,11 @@ export interface ApiReceptionistReceptionist extends Schema.CollectionType {
       'api::receptionist.receptionist',
       'manyToOne',
       'api::hospital.hospital'
+    >;
+    appointments: Attribute.Relation<
+      'api::receptionist.receptionist',
+      'manyToMany',
+      'api::appointment.appointment'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1248,6 +1322,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::appointment.appointment': ApiAppointmentAppointment;
       'api::consultant.consultant': ApiConsultantConsultant;
       'api::doctor.doctor': ApiDoctorDoctor;
       'api::hospital.hospital': ApiHospitalHospital;

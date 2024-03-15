@@ -4,7 +4,8 @@
   "info": {
     "singularName": "patient",
     "pluralName": "patients",
-    "displayName": "Patient"
+    "displayName": "Patient",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -46,6 +47,17 @@
       "relation": "oneToMany",
       "target": "api::medical-record.medical-record",
       "mappedBy": "patient"
+    },
+    "appointments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::appointment.appointment",
+      "mappedBy": "patient"
+    },
+    "reg_Num": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

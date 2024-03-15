@@ -40,6 +40,12 @@
       "relation": "manyToOne",
       "target": "api::hospital.hospital",
       "inversedBy": "receptionists"
+    },
+    "appointments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::appointment.appointment",
+      "mappedBy": "receptionists"
     }
   }
 }

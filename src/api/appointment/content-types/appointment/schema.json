@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "appointments",
+  "info": {
+    "singularName": "appointment",
+    "pluralName": "appointments",
+    "displayName": "appointment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "specializations": {
+      "type": "enumeration",
+      "enum": [
+        "Anatomical Pathology",
+        "Anesthesiology",
+        "Cardiology",
+        "Cardiovascular/Thoracic Surgery",
+        "Clinical Immunology/Allergy",
+        "Critical Care Medicine",
+        "Dermatology"
+      ]
+    },
+    "date": {
+      "type": "date"
+    },
+    "time": {
+      "type": "time"
+    },
+    "hospital": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::hospital.hospital",
+      "inversedBy": "appointments"
+    },
+    "patient": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::patient.patient",
+      "inversedBy": "appointments"
+    },
+    "receptionists": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::receptionist.receptionist",
+      "inversedBy": "appointments"
+    }
+  }
+}
