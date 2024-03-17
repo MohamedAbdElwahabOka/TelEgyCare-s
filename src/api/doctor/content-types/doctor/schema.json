@@ -72,6 +72,12 @@
       "relation": "oneToMany",
       "target": "api::medical-record.medical-record",
       "mappedBy": "doctor"
+    },
+    "appointments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::appointment.appointment",
+      "mappedBy": "doctor"
     }
   }
 }
