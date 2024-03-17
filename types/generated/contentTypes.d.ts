@@ -789,6 +789,7 @@ export interface ApiAppointmentAppointment extends Schema.CollectionType {
     singularName: 'appointment';
     pluralName: 'appointments';
     displayName: 'appointment';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -821,6 +822,11 @@ export interface ApiAppointmentAppointment extends Schema.CollectionType {
       'api::appointment.appointment',
       'manyToMany',
       'api::receptionist.receptionist'
+    >;
+    doctor: Attribute.Relation<
+      'api::appointment.appointment',
+      'manyToOne',
+      'api::doctor.doctor'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -954,6 +960,11 @@ export interface ApiDoctorDoctor extends Schema.CollectionType {
       'api::doctor.doctor',
       'oneToMany',
       'api::medical-record.medical-record'
+    >;
+    appointments: Attribute.Relation<
+      'api::doctor.doctor',
+      'oneToMany',
+      'api::appointment.appointment'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
