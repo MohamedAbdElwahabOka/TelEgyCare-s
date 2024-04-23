@@ -16,10 +16,6 @@
       "type": "string",
       "required": true
     },
-    "Address": {
-      "type": "text",
-      "required": true
-    },
     "Password": {
       "type": "password",
       "required": true
@@ -58,6 +54,24 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "Governorate": {
+      "type": "text",
+      "required": true
+    },
+    "NationalId": {
+      "type": "integer",
+      "required": true
+    },
+    "City": {
+      "type": "string"
+    },
+    "Street": {
+      "type": "string"
+    },
+    "Gender": {
+      "type": "string",
+      "required": true
     }
   }
 }

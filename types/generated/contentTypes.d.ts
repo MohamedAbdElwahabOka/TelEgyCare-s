@@ -1200,7 +1200,6 @@ export interface ApiPatientPatient extends Schema.CollectionType {
   };
   attributes: {
     Name: Attribute.String & Attribute.Required;
-    Address: Attribute.Text & Attribute.Required;
     Password: Attribute.Password & Attribute.Required;
     Email: Attribute.Email & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
@@ -1221,6 +1220,11 @@ export interface ApiPatientPatient extends Schema.CollectionType {
       'api::appointment.appointment'
     >;
     reg_Num: Attribute.String & Attribute.Required & Attribute.Unique;
+    Governorate: Attribute.Text & Attribute.Required;
+    NationalId: Attribute.Integer & Attribute.Required;
+    City: Attribute.String;
+    Street: Attribute.String;
+    Gender: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1295,6 +1299,7 @@ export interface ApiTestTest extends Schema.CollectionType {
     singularName: 'test';
     pluralName: 'tests';
     displayName: 'Test';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1304,7 +1309,6 @@ export interface ApiTestTest extends Schema.CollectionType {
     phone: Attribute.Integer;
     Email: Attribute.Email;
     Password: Attribute.Password;
-    Img: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
