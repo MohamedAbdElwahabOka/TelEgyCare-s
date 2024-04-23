@@ -1060,7 +1060,7 @@ export interface ApiLaboratoryLaboratory extends Schema.CollectionType {
         minLength: 6;
       }>;
     Name: Attribute.String & Attribute.Required;
-    Password: Attribute.Password & Attribute.Required;
+    Password: Attribute.Text & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
     Address: Attribute.Text & Attribute.Required;
     medical_records: Attribute.Relation<

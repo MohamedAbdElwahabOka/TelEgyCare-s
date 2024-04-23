@@ -24,7 +24,7 @@
       "required": true
     },
     "Password": {
-      "type": "password",
+      "type": "text",
       "required": true
     },
     "phone": {
