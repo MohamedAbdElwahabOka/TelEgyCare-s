@@ -1258,7 +1258,6 @@ export interface ApiReceptionistReceptionist extends Schema.CollectionType {
         minLength: 6;
       }>;
     Name: Attribute.String & Attribute.Required;
-    Password: Attribute.Password & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
     Address: Attribute.Text & Attribute.Required;
     hospital: Attribute.Relation<
@@ -1271,6 +1270,7 @@ export interface ApiReceptionistReceptionist extends Schema.CollectionType {
       'manyToMany',
       'api::appointment.appointment'
     >;
+    Password: Attribute.Text & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
