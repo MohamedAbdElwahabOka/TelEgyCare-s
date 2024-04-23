@@ -23,10 +23,6 @@
       "type": "string",
       "required": true
     },
-    "Password": {
-      "type": "password",
-      "required": true
-    },
     "phone": {
       "type": "string",
       "required": true
@@ -46,6 +42,11 @@
       "relation": "manyToMany",
       "target": "api::appointment.appointment",
       "mappedBy": "receptionists"
+    },
+    "Password": {
+      "type": "text",
+      "required": true,
+      "unique": false
     }
   }
 }
