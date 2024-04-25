@@ -44,15 +44,10 @@
     "doctor_Pic": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
         "images"
       ]
-    },
-    "Password": {
-      "type": "password",
-      "required": true,
-      "minLength": 6
     },
     "reg_Num": {
       "type": "string",
@@ -78,6 +73,28 @@
       "relation": "oneToMany",
       "target": "api::appointment.appointment",
       "mappedBy": "doctor"
+    },
+    "Password": {
+      "type": "string",
+      "required": true
+    },
+    "LicenseNumber": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "LicenseImg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "NationalID": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }
