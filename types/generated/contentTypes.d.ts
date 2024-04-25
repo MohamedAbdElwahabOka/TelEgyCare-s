@@ -939,12 +939,7 @@ export interface ApiDoctorDoctor extends Schema.CollectionType {
       ]
     > &
       Attribute.Required;
-    doctor_Pic: Attribute.Media & Attribute.Required;
-    Password: Attribute.Password &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 6;
-      }>;
+    doctor_Pic: Attribute.Media;
     reg_Num: Attribute.String &
       Attribute.Required &
       Attribute.Unique &
@@ -966,6 +961,10 @@ export interface ApiDoctorDoctor extends Schema.CollectionType {
       'oneToMany',
       'api::appointment.appointment'
     >;
+    Password: Attribute.String & Attribute.Required;
+    LicenseNumber: Attribute.String & Attribute.Required & Attribute.Unique;
+    LicenseImg: Attribute.Media;
+    NationalID: Attribute.String & Attribute.Required & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
