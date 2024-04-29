@@ -16,7 +16,6 @@
       "type": "string",
       "required": true,
       "minLength": 6,
-      "regex": "^\\d{6,50}$",
       "unique": true
     },
     "Name": {
