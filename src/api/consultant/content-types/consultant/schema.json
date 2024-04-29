@@ -15,7 +15,6 @@
     "reg_Num": {
       "type": "string",
       "required": true,
-      "regex": "^\\d{6,50}$",
       "minLength": 6,
       "unique": true
     },
