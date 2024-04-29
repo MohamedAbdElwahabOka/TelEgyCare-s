@@ -28,19 +28,6 @@
       "type": "text",
       "required": true
     },
-    "Type_of_Spec": {
-      "type": "enumeration",
-      "enum": [
-        "Anatomical Pathology",
-        "Anesthesiology",
-        "Cardiology",
-        "Cardiovascular/Thoracic Surgery",
-        "Clinical Immunology/Allergy",
-        "Critical Care Medicine",
-        "Dermatology"
-      ],
-      "required": true
-    },
     "doctor_Pic": {
       "type": "media",
       "multiple": false,
@@ -95,6 +82,10 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "Type_of_Spec": {
+      "type": "string",
+      "required": true
     }
   }
 }

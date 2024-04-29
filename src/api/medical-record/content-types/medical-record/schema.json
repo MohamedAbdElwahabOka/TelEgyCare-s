@@ -58,6 +58,21 @@
       "relation": "manyToOne",
       "target": "api::consultant.consultant",
       "inversedBy": "medical_records"
+    },
+    "Height": {
+      "type": "integer"
+    },
+    "Weight": {
+      "type": "integer"
+    },
+    "Body_Mass_Index": {
+      "type": "integer"
+    },
+    "Blood_Pressure": {
+      "type": "integer"
+    },
+    "Pulse": {
+      "type": "integer"
     }
   }
 }

@@ -927,18 +927,6 @@ export interface ApiDoctorDoctor extends Schema.CollectionType {
     Email: Attribute.Email & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
     Address: Attribute.Text & Attribute.Required;
-    Type_of_Spec: Attribute.Enumeration<
-      [
-        'Anatomical Pathology',
-        'Anesthesiology',
-        'Cardiology',
-        'Cardiovascular/Thoracic Surgery',
-        'Clinical Immunology/Allergy',
-        'Critical Care Medicine',
-        'Dermatology'
-      ]
-    > &
-      Attribute.Required;
     doctor_Pic: Attribute.Media;
     reg_Num: Attribute.String &
       Attribute.Required &
@@ -965,6 +953,7 @@ export interface ApiDoctorDoctor extends Schema.CollectionType {
     LicenseNumber: Attribute.String & Attribute.Required & Attribute.Unique;
     LicenseImg: Attribute.Media;
     NationalID: Attribute.String & Attribute.Required & Attribute.Unique;
+    Type_of_Spec: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1168,6 +1157,11 @@ export interface ApiMedicalRecordMedicalRecord extends Schema.CollectionType {
       'manyToOne',
       'api::consultant.consultant'
     >;
+    Height: Attribute.Integer;
+    Weight: Attribute.Integer;
+    Body_Mass_Index: Attribute.Integer;
+    Blood_Pressure: Attribute.Integer;
+    Pulse: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1224,6 +1218,7 @@ export interface ApiPatientPatient extends Schema.CollectionType {
     City: Attribute.String;
     Street: Attribute.String;
     Gender: Attribute.String & Attribute.Required;
+    Blood_Type: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

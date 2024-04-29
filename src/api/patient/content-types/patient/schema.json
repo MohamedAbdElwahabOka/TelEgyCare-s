@@ -72,6 +72,9 @@
     "Gender": {
       "type": "string",
       "required": true
+    },
+    "Blood_Type": {
+      "type": "string"
     }
   }
 }
