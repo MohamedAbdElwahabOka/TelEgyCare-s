@@ -49,6 +49,11 @@
       "relation": "oneToMany",
       "target": "api::appointment.appointment",
       "mappedBy": "hospital"
+    },
+    "HospitalId": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

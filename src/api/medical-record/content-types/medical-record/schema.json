@@ -73,6 +73,11 @@
     },
     "Pulse": {
       "type": "integer"
+    },
+    "Medical_RecordId": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

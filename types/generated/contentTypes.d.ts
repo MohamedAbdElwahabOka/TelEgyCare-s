@@ -828,6 +828,7 @@ export interface ApiAppointmentAppointment extends Schema.CollectionType {
       'manyToOne',
       'api::doctor.doctor'
     >;
+    AppointmentID: Attribute.String & Attribute.Required & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1011,6 +1012,7 @@ export interface ApiHospitalHospital extends Schema.CollectionType {
       'oneToMany',
       'api::appointment.appointment'
     >;
+    HospitalId: Attribute.String & Attribute.Required & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1088,13 +1090,14 @@ export interface ApiManagerManager extends Schema.CollectionType {
   attributes: {
     Name: Attribute.String & Attribute.Required;
     Email: Attribute.Email & Attribute.Required;
-    Password: Attribute.Password & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
     hospital: Attribute.Relation<
       'api::manager.manager',
       'oneToOne',
       'api::hospital.hospital'
     >;
+    ManagerId: Attribute.String & Attribute.Required & Attribute.Unique;
+    Password: Attribute.Text & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1162,6 +1165,7 @@ export interface ApiMedicalRecordMedicalRecord extends Schema.CollectionType {
     Body_Mass_Index: Attribute.Integer;
     Blood_Pressure: Attribute.Integer;
     Pulse: Attribute.Integer;
+    Medical_RecordId: Attribute.String & Attribute.Required & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

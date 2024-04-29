@@ -53,6 +53,11 @@
       "relation": "manyToOne",
       "target": "api::doctor.doctor",
       "inversedBy": "appointments"
+    },
+    "AppointmentID": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }
