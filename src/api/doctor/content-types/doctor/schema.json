@@ -40,8 +40,7 @@
       "type": "string",
       "unique": true,
       "minLength": 6,
-      "required": true,
-      "regex": "^\\d{6,50}$"
+      "required": true
     },
     "hospital": {
       "type": "relation",

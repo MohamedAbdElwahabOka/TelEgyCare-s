@@ -56,10 +56,6 @@
       ],
       "required": true
     },
-    "Password": {
-      "type": "password",
-      "required": true
-    },
     "license_Num": {
       "type": "string",
       "required": true
@@ -75,6 +71,10 @@
       "relation": "oneToMany",
       "target": "api::medical-record.medical-record",
       "mappedBy": "consultant"
+    },
+    "Password": {
+      "type": "string",
+      "required": true
     }
   }
 }

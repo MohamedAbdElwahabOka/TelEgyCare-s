@@ -882,7 +882,6 @@ export interface ApiConsultantConsultant extends Schema.CollectionType {
       ]
     > &
       Attribute.Required;
-    Password: Attribute.Password & Attribute.Required;
     license_Num: Attribute.String & Attribute.Required;
     hospitals: Attribute.Relation<
       'api::consultant.consultant',
@@ -894,6 +893,7 @@ export interface ApiConsultantConsultant extends Schema.CollectionType {
       'oneToMany',
       'api::medical-record.medical-record'
     >;
+    Password: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1217,7 +1217,7 @@ export interface ApiPatientPatient extends Schema.CollectionType {
     >;
     reg_Num: Attribute.String & Attribute.Required & Attribute.Unique;
     Governorate: Attribute.Text & Attribute.Required;
-    NationalId: Attribute.Integer & Attribute.Required;
+    NationalId: Attribute.BigInteger & Attribute.Required;
     City: Attribute.String;
     Street: Attribute.String;
     Gender: Attribute.String & Attribute.Required;

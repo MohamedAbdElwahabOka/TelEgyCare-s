@@ -56,7 +56,7 @@
       "required": true
     },
     "NationalId": {
-      "type": "integer",
+      "type": "biginteger",
       "required": true
     },
     "City": {
