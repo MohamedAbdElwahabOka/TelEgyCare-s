@@ -1197,7 +1197,6 @@ export interface ApiPatientPatient extends Schema.CollectionType {
   };
   attributes: {
     Name: Attribute.String & Attribute.Required;
-    Password: Attribute.Password & Attribute.Required;
     Email: Attribute.Email & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
     Birth_Date: Attribute.Date & Attribute.Required;
@@ -1223,6 +1222,7 @@ export interface ApiPatientPatient extends Schema.CollectionType {
     Street: Attribute.String;
     Gender: Attribute.String & Attribute.Required;
     Blood_Type: Attribute.String;
+    Password: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

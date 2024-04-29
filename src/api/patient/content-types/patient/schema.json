@@ -16,10 +16,6 @@
       "type": "string",
       "required": true
     },
-    "Password": {
-      "type": "password",
-      "required": true
-    },
     "Email": {
       "type": "email",
       "required": true
@@ -75,6 +71,10 @@
     },
     "Blood_Type": {
       "type": "string"
+    },
+    "Password": {
+      "type": "string",
+      "required": true
     }
   }
 }
