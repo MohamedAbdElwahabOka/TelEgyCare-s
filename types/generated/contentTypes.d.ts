@@ -985,7 +985,7 @@ export interface ApiHospitalHospital extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    Name: Attribute.String & Attribute.Required;
+    Id_Hospital: Attribute.String & Attribute.Required & Attribute.Unique;
     Address: Attribute.Text & Attribute.Required;
     doctors: Attribute.Relation<
       'api::hospital.hospital',
@@ -1012,7 +1012,7 @@ export interface ApiHospitalHospital extends Schema.CollectionType {
       'oneToMany',
       'api::appointment.appointment'
     >;
-    HospitalId: Attribute.String & Attribute.Required & Attribute.Unique;
+    Name: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

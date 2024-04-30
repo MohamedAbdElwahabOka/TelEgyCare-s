@@ -12,9 +12,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Name": {
+    "Id_Hospital": {
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "Address": {
       "type": "text",
@@ -50,10 +51,10 @@
       "target": "api::appointment.appointment",
       "mappedBy": "hospital"
     },
-    "HospitalId": {
+    "Name": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     }
   }
 }
