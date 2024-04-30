@@ -1128,9 +1128,9 @@ export interface ApiMedicalRecordMedicalRecord extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    prescription: Attribute.Text & Attribute.Required;
-    Lab_note: Attribute.Text & Attribute.Required;
-    Files: Attribute.Media;
+    prescription: Attribute.Text;
+    Lab_note: Attribute.Text;
+    Lab_Files: Attribute.Media;
     pres_state: Attribute.Integer &
       Attribute.Required &
       Attribute.SetMinMax<
@@ -1166,6 +1166,7 @@ export interface ApiMedicalRecordMedicalRecord extends Schema.CollectionType {
     Blood_Pressure: Attribute.Integer;
     Pulse: Attribute.Integer;
     Medical_RecordId: Attribute.String & Attribute.Required & Attribute.Unique;
+    doctor_Files: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

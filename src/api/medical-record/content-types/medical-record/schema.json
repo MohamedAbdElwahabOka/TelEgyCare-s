@@ -14,13 +14,13 @@
   "attributes": {
     "prescription": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "Lab_note": {
       "type": "text",
-      "required": true
+      "required": false
     },
-    "Files": {
+    "Lab_Files": {
       "type": "media",
       "multiple": true,
       "required": false,
@@ -78,6 +78,14 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "doctor_Files": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }
