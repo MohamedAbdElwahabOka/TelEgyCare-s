@@ -1167,6 +1167,7 @@ export interface ApiMedicalRecordMedicalRecord extends Schema.CollectionType {
     Pulse: Attribute.Integer;
     Medical_RecordId: Attribute.String & Attribute.Required & Attribute.Unique;
     doctor_Files: Attribute.Media;
+    Test_Orders: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

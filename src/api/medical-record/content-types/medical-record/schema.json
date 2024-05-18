@@ -80,12 +80,17 @@
       "unique": true
     },
     "doctor_Files": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "Test_Orders": {
+      "type": "text",
+      "required": false
     }
   }
 }
