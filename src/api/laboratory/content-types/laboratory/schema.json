@@ -39,6 +39,15 @@
       "relation": "oneToMany",
       "target": "api::medical-record.medical-record",
       "mappedBy": "laboratory"
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "MRI",
+        "CT",
+        "X-Ray",
+        "Pulmonology"
+      ]
     }
   }
 }

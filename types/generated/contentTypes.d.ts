@@ -951,9 +951,21 @@ export interface ApiDoctorDoctor extends Schema.CollectionType {
       'api::appointment.appointment'
     >;
     Password: Attribute.String & Attribute.Required;
-    LicenseNumber: Attribute.String & Attribute.Required & Attribute.Unique;
+    LicenseNumber: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 6;
+        maxLength: 6;
+      }>;
     LicenseImg: Attribute.Media;
-    NationalID: Attribute.String & Attribute.Required & Attribute.Unique;
+    NationalID: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 14;
+        maxLength: 14;
+      }>;
     Type_of_Spec: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1058,6 +1070,7 @@ export interface ApiLaboratoryLaboratory extends Schema.CollectionType {
       'oneToMany',
       'api::medical-record.medical-record'
     >;
+    Category: Attribute.Enumeration<['MRI', 'CT', 'X-Ray', 'Pulmonology']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

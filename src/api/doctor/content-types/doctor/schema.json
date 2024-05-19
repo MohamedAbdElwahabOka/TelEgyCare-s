@@ -67,7 +67,9 @@
     "LicenseNumber": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": true,
+      "maxLength": 6,
+      "minLength": 6
     },
     "LicenseImg": {
       "type": "media",
@@ -80,7 +82,9 @@
     "NationalID": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": true,
+      "maxLength": 14,
+      "minLength": 14
     },
     "Type_of_Spec": {
       "type": "string",
