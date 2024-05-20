@@ -55,10 +55,6 @@
       "type": "text",
       "required": true
     },
-    "NationalId": {
-      "type": "biginteger",
-      "required": true
-    },
     "City": {
       "type": "string"
     },
@@ -75,6 +71,13 @@
     "Password": {
       "type": "string",
       "required": true
+    },
+    "NationalId": {
+      "type": "string",
+      "unique": true,
+      "required": true,
+      "maxLength": 14,
+      "minLength": 14
     }
   }
 }

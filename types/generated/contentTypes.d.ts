@@ -1232,12 +1232,18 @@ export interface ApiPatientPatient extends Schema.CollectionType {
     >;
     reg_Num: Attribute.String & Attribute.Required & Attribute.Unique;
     Governorate: Attribute.Text & Attribute.Required;
-    NationalId: Attribute.BigInteger & Attribute.Required;
     City: Attribute.String;
     Street: Attribute.String;
     Gender: Attribute.String & Attribute.Required;
     Blood_Type: Attribute.String;
     Password: Attribute.String & Attribute.Required;
+    NationalId: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetMinMaxLength<{
+        minLength: 14;
+        maxLength: 14;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
