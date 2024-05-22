@@ -797,6 +797,7 @@ export interface ApiAppointmentAppointment extends Schema.CollectionType {
   attributes: {
     specializations: Attribute.Enumeration<
       [
+        'general specialty',
         'Anatomical Pathology',
         'Anesthesiology',
         'Cardiology',
@@ -829,6 +830,7 @@ export interface ApiAppointmentAppointment extends Schema.CollectionType {
       'api::doctor.doctor'
     >;
     AppointmentID: Attribute.String & Attribute.Required & Attribute.Unique;
+    State: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
