@@ -61,7 +61,8 @@
       "unique": true
     },
     "State": {
-      "type": "string"
+      "type": "string",
+      "default": "0"
     }
   }
 }

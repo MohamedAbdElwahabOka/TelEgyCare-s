@@ -830,7 +830,7 @@ export interface ApiAppointmentAppointment extends Schema.CollectionType {
       'api::doctor.doctor'
     >;
     AppointmentID: Attribute.String & Attribute.Required & Attribute.Unique;
-    State: Attribute.String;
+    State: Attribute.String & Attribute.DefaultTo<'0'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1072,7 +1072,7 @@ export interface ApiLaboratoryLaboratory extends Schema.CollectionType {
       'oneToMany',
       'api::medical-record.medical-record'
     >;
-    Category: Attribute.Enumeration<['MRI', 'CT', 'X-Ray', 'Pulmonology']>;
+    Category: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

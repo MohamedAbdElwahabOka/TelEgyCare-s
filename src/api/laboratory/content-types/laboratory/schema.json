@@ -41,13 +41,7 @@
       "mappedBy": "laboratory"
     },
     "Category": {
-      "type": "enumeration",
-      "enum": [
-        "MRI",
-        "CT",
-        "X-Ray",
-        "Pulmonology"
-      ]
+      "type": "string"
     }
   }
 }
