@@ -69,7 +69,7 @@
       "type": "string"
     },
     "Password": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "NationalId": {

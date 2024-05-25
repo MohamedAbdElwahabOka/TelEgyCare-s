@@ -801,8 +801,8 @@ export interface ApiAppointmentAppointment extends Schema.CollectionType {
         'Anatomical Pathology',
         'Anesthesiology',
         'Cardiology',
-        'Cardiovascular/Thoracic Surgery',
-        'Clinical Immunology/Allergy',
+        'Cardiovascular',
+        'Clinical Immunology',
         'Critical Care Medicine',
         'Dermatology'
       ]
@@ -1238,7 +1238,7 @@ export interface ApiPatientPatient extends Schema.CollectionType {
     Street: Attribute.String;
     Gender: Attribute.String & Attribute.Required;
     Blood_Type: Attribute.String;
-    Password: Attribute.String & Attribute.Required;
+    Password: Attribute.Text & Attribute.Required;
     NationalId: Attribute.String &
       Attribute.Required &
       Attribute.Unique &
