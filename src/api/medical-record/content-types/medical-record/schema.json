@@ -29,12 +29,6 @@
         "files"
       ]
     },
-    "pres_state": {
-      "type": "integer",
-      "max": 4,
-      "default": 0,
-      "required": true
-    },
     "patient": {
       "type": "relation",
       "relation": "manyToOne",
@@ -91,6 +85,11 @@
     "Test_Orders": {
       "type": "text",
       "required": false
+    },
+    "pres_state": {
+      "type": "string",
+      "default": "0",
+      "required": true
     }
   }
 }

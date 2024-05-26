@@ -1146,15 +1146,6 @@ export interface ApiMedicalRecordMedicalRecord extends Schema.CollectionType {
     prescription: Attribute.Text;
     Lab_note: Attribute.Text;
     Lab_Files: Attribute.Media;
-    pres_state: Attribute.Integer &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          max: 4;
-        },
-        number
-      > &
-      Attribute.DefaultTo<0>;
     patient: Attribute.Relation<
       'api::medical-record.medical-record',
       'manyToOne',
@@ -1183,6 +1174,9 @@ export interface ApiMedicalRecordMedicalRecord extends Schema.CollectionType {
     Medical_RecordId: Attribute.String & Attribute.Required & Attribute.Unique;
     doctor_Files: Attribute.Media;
     Test_Orders: Attribute.Text;
+    pres_state: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'0'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
