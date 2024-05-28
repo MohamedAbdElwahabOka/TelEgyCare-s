@@ -53,20 +53,11 @@
       "target": "api::consultant.consultant",
       "inversedBy": "medical_records"
     },
-    "Height": {
-      "type": "integer"
-    },
     "Weight": {
-      "type": "integer"
-    },
-    "Body_Mass_Index": {
-      "type": "integer"
+      "type": "string"
     },
     "Blood_Pressure": {
-      "type": "integer"
-    },
-    "Pulse": {
-      "type": "integer"
+      "type": "string"
     },
     "Medical_RecordId": {
       "type": "string",
@@ -90,6 +81,12 @@
       "type": "string",
       "default": "0",
       "required": true
+    },
+    "Height": {
+      "type": "string"
+    },
+    "Body_Mass_Index": {
+      "type": "string"
     }
   }
 }

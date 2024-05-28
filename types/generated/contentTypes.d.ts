@@ -1166,17 +1166,16 @@ export interface ApiMedicalRecordMedicalRecord extends Schema.CollectionType {
       'manyToOne',
       'api::consultant.consultant'
     >;
-    Height: Attribute.Integer;
-    Weight: Attribute.Integer;
-    Body_Mass_Index: Attribute.Integer;
-    Blood_Pressure: Attribute.Integer;
-    Pulse: Attribute.Integer;
+    Weight: Attribute.String;
+    Blood_Pressure: Attribute.String;
     Medical_RecordId: Attribute.String & Attribute.Required & Attribute.Unique;
     doctor_Files: Attribute.Media;
     Test_Orders: Attribute.Text;
     pres_state: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'0'>;
+    Height: Attribute.String;
+    Body_Mass_Index: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
