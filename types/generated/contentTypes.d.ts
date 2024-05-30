@@ -831,6 +831,11 @@ export interface ApiAppointmentAppointment extends Schema.CollectionType {
     >;
     AppointmentID: Attribute.String & Attribute.Required & Attribute.Unique;
     State: Attribute.String & Attribute.DefaultTo<'0'>;
+    consultant: Attribute.Relation<
+      'api::appointment.appointment',
+      'manyToOne',
+      'api::consultant.consultant'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -869,7 +874,6 @@ export interface ApiConsultantConsultant extends Schema.CollectionType {
       }>;
     Email: Attribute.Email & Attribute.Required;
     Address: Attribute.Text & Attribute.Required;
-    pic: Attribute.Media & Attribute.Required;
     Name: Attribute.String & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
     Type_of_Spec: Attribute.Enumeration<
@@ -896,6 +900,13 @@ export interface ApiConsultantConsultant extends Schema.CollectionType {
       'api::medical-record.medical-record'
     >;
     Password: Attribute.String & Attribute.Required;
+    LicenseImg: Attribute.Media & Attribute.Required;
+    doctor_Pic: Attribute.Media;
+    appointments: Attribute.Relation<
+      'api::consultant.consultant',
+      'oneToMany',
+      'api::appointment.appointment'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

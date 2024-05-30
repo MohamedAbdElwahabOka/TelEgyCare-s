@@ -26,14 +26,6 @@
       "type": "text",
       "required": true
     },
-    "pic": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
-    },
     "Name": {
       "type": "string",
       "required": true
@@ -74,6 +66,32 @@
     "Password": {
       "type": "string",
       "required": true
+    },
+    "LicenseImg": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "doctor_Pic": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "appointments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::appointment.appointment",
+      "mappedBy": "consultant"
     }
   }
 }

@@ -63,6 +63,12 @@
     "State": {
       "type": "string",
       "default": "0"
+    },
+    "consultant": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::consultant.consultant",
+      "inversedBy": "appointments"
     }
   }
 }
