@@ -876,19 +876,7 @@ export interface ApiConsultantConsultant extends Schema.CollectionType {
     Address: Attribute.Text & Attribute.Required;
     Name: Attribute.String & Attribute.Required;
     phone: Attribute.String & Attribute.Required;
-    Type_of_Spec: Attribute.Enumeration<
-      [
-        'Anatomical Pathology',
-        'Anesthesiology',
-        'Cardiology',
-        'Cardiovascular/Thoracic Surgery',
-        'Clinical Immunology/Allergy',
-        'Critical Care Medicine',
-        'Dermatology'
-      ]
-    > &
-      Attribute.Required;
-    license_Num: Attribute.String & Attribute.Required;
+    LicenseNumber: Attribute.String & Attribute.Required;
     hospitals: Attribute.Relation<
       'api::consultant.consultant',
       'manyToMany',
@@ -907,6 +895,8 @@ export interface ApiConsultantConsultant extends Schema.CollectionType {
       'oneToMany',
       'api::appointment.appointment'
     >;
+    Type_of_Spec: Attribute.String;
+    NationalID: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

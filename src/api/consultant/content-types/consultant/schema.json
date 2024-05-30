@@ -34,20 +34,7 @@
       "type": "string",
       "required": true
     },
-    "Type_of_Spec": {
-      "type": "enumeration",
-      "enum": [
-        "Anatomical Pathology",
-        "Anesthesiology",
-        "Cardiology",
-        "Cardiovascular/Thoracic Surgery",
-        "Clinical Immunology/Allergy",
-        "Critical Care Medicine",
-        "Dermatology"
-      ],
-      "required": true
-    },
-    "license_Num": {
+    "LicenseNumber": {
       "type": "string",
       "required": true
     },
@@ -92,6 +79,12 @@
       "relation": "oneToMany",
       "target": "api::appointment.appointment",
       "mappedBy": "consultant"
+    },
+    "Type_of_Spec": {
+      "type": "string"
+    },
+    "NationalID": {
+      "type": "string"
     }
   }
 }
