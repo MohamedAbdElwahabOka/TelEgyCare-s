@@ -1028,6 +1028,7 @@ export interface ApiHospitalHospital extends Schema.CollectionType {
       'api::appointment.appointment'
     >;
     Name: Attribute.String & Attribute.Required;
+    Hospital_Img: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

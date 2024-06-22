@@ -55,6 +55,13 @@
       "type": "string",
       "required": true,
       "unique": false
+    },
+    "Hospital_Img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
